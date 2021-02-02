@@ -1,0 +1,50 @@
+{
+	"sim_param": {
+		"env_param": {
+			"diff_coeff": 0.1,
+			"grid_side": 1,
+			"init_food": 10.0,
+			"mean_degr_rate": 0.1,
+			"mean_diff_coeff": 0.1,
+			"metab_degrad_rate": 0.1,
+			"var_degr_coeff": 0.02,
+			"var_diff_coeff": 0.02
+		},
+		"ind_param": {
+			"metab_secretion_rate": 1.0,
+			"metabolic_rate": 0.01,
+			"radius": 0.8,
+			"reproduction_prob": 0.5,
+			"reproduction_prob_mean": 0.5,
+			"reproduction_prob_var": 0.01,
+			"spor_metabolic_rate": 0.5,
+			"spor_metabolic_rate_mean": 0.5,
+			"spor_metabolic_rate_var": 0.01,
+			"transformation_range": 1,
+			"transformation_time": 5,
+			"transformation_time_mean": 5,
+			"treshold_energy": 10.0,
+			"uptake_rate": 0.1,
+			"uptake_rate_mean": 0.1,
+			"uptake_rate_var": 0.01
+		},
+		"meta_param": {
+			"change_frequency": 0,
+			"collision_check_interval": 0,
+			"cycle_duration": 200,
+			"n_cycles": 1,
+			"pop_max": 1000000,
+			"seed": 1
+		},
+		"pop_param": {
+			"base_disp_prob": 0.01,
+			"death_rate": 0.0,
+			"exp_new_pop_size": 1,
+			"min_dist": 0.1,
+			"mutation_prob": 0.0015,
+			"mutation_step": 0.1,
+			"spore_advantage": 10.0,
+			"start_pop_size": 1
+		}
+	}
+}
