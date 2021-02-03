@@ -18,11 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\permute_json\default_param..json" />
+    <None Include="..\..\permute_json\generate.R" />
+    <None Include="..\..\permute_json\params.json" />
+    <None Include="..\..\permute_json\results.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\permute_json\main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{F67ED733-0713-4C87-BDEC-881815610E2C}</ProjectGuid>
-    <RootNamespace>grnloadsavejson</RootNamespace>
+    <ProjectGuid>{064CAD95-5B9E-44E2-B4F5-B0ACC58CAF80}</ProjectGuid>
+    <RootNamespace>permutejson</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -140,18 +149,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\grn_load_save_json\grn.cpp" />
-    <ClCompile Include="..\..\grn_load_save_json\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\grn_load_save_json\grn.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\grn_load_save_json\grn.json" />
-    <None Include="..\..\grn_load_save_json\pop.json" />
-    <None Include="..\..\grn_load_save_json\test.R" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

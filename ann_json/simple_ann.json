@@ -1,4 +1,6 @@
 {
-	"ann": "SimpleAnn",
-	"individual": [ 0.0, 0.0, 0.0 ]
+	"simulation": {
+		"ann_type": "SimpleAnn",
+		"init_ann": [ 0.0, 0.0, 0.0 ]
+	}
 }

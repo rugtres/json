@@ -22,26 +22,26 @@ namespace sim {
 
 
   template <typename ANN>
-  class Individual
+  class Simulation
   {
   public:
-    Individual() {}
+    Simulation() {}
 
   private:
-    ANN ann_;
+    ANN init_ann_;
 
-    friend void to_json(nlohmann::json& j, const Individual& ind)
+    friend void to_json(nlohmann::json& j, const Simulation& sim)
     {
-      for (auto first = ind.ann_.cbegin(); first != ind.ann_.cend(); ++first) {
+      for (auto first = sim.init_ann_.cbegin(); first != sim.init_ann_.cend(); ++first) {
         j.push_back(*first);
       }
     }
 
-    friend void from_json(const nlohmann::json& j, Individual& ind)
+    friend void from_json(const nlohmann::json& j, Simulation& sim)
     {
       const size_t n = j.size();
       if (n != ANN::state_size) throw std::runtime_error("ANN state size mismatch");
-      auto first = ind.ann_.begin();
+      auto first = sim.init_ann_.begin();
       for (size_t i = 0; i < j.size(); ++i, ++first) {
         *first = j.at(i);
       }
@@ -52,8 +52,8 @@ namespace sim {
   template <typename ANN>
   void run(const nlohmann::json& j)
   {
-    std::cout << "running simulation with: " << j["ann"] << std::endl;
-    Individual<ANN> ind = j["individual"];    // throws if something is wrong
+    std::cout << "running simulation with: " << j.at("ann_type") << std::endl;
+    Simulation<ANN> sim = j.at("init_ann");
   }
 
 }
@@ -65,10 +65,11 @@ int main()
     nlohmann::json j;
     auto is = std::ifstream("simple_ann.json");
     is >> j;
-    // runtime to template
-    std::string ann_type = j["ann"];
-    if (ann_type == "SimpleAnn") sim::run<sim::SimpleAnn>(j);
-    else if (ann_type == "ComplexAnn") sim::run<sim::ComplexAnn>(j);
+    // runtime to template dispatch
+    auto js = j.at("simulation");
+    std::string ann_type = js.at("ann_type");
+    if (ann_type == "SimpleAnn") sim::run<sim::SimpleAnn>(js);
+    else if (ann_type == "ComplexAnn") sim::run<sim::ComplexAnn>(js);
     else throw std::runtime_error("unknown ANN");
     return 0;
   }

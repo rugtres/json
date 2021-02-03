@@ -15,21 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\grn_load_save_json\grn.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\grn_load_save_json\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include="..\..\permute_json\default_param..json" />
+    <None Include="..\..\permute_json\generate.R" />
+    <None Include="..\..\permute_json\params.json" />
+    <None Include="..\..\permute_json\results.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\grn_load_save_json\grn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\grn_load_save_json\grn.json" />
-    <None Include="..\..\grn_load_save_json\pop.json" />
-    <None Include="..\..\grn_load_save_json\test.R" />
+    <ClCompile Include="..\..\permute_json\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

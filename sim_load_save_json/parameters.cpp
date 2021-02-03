@@ -88,7 +88,7 @@ void from_json(const nlohmann::json& j, ind_param& t)
 // members are private here - we use accessors
 void to_json(nlohmann::json& j, const sim_param& t) 
 {
-  j["sim_param"] = nlohmann::json{
+  j["sim_param"] = {
     {"env_param", t.get_env_param()},
     {"ind_param", t.get_ind_param()},
     {"meta_param", t.get_meta_param()},
@@ -100,7 +100,7 @@ void to_json(nlohmann::json& j, const sim_param& t)
 // at least we have an public constructor...
 void from_json(const nlohmann::json& j, sim_param& t) 
 {
-  auto jsp = j["sim_param"];
+  auto jsp = j.at("sim_param");
   auto ep = jsp.at("env_param").get<env_param>();
   auto ip = jsp.at("ind_param").get<ind_param>();
   auto mp = jsp.at("meta_param").get<meta_param>();

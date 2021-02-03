@@ -45,6 +45,7 @@ void pretty_print(const GRN& grn)
 
 int main()
 {
+  try {
     std::minstd_rand0 rng{};
     auto grn_out = make_grn(rng);
     {
@@ -74,4 +75,10 @@ int main()
 
     // pretty print
     std::cout << json_pop["population"][0].dump(4) << std::endl;
+    return 0;
+  }
+  catch (const std::exception& err) {
+    std::cout << err.what() << std::endl;
+  }
+  return -1;
 }

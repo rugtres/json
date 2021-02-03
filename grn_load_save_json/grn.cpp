@@ -41,25 +41,27 @@ GRN::GRN(std::vector<std::vector<double> > ConI2H,
 
 void to_json(nlohmann::json& j, const GRN& t)
 {
-  j["ConI2H"] = t.m_ConI2H;
-  j["ConH2H"] = t.m_ConH2H;
-  j["ConH2O"] = t.m_ConH2O;
-  j["THidden"] = t.m_THidden;
-  j["ExInput"] = t.m_ExInput;
-  j["ExHidden"] = t.m_ExHidden;
-  j["ExOutput"] = t.m_ExOutput;
+  j = {
+    { "ConI2H", t.m_ConI2H },
+    { "ConH2H", t.m_ConH2H },
+    { "ConH2O", t.m_ConH2O },
+    { "THidden", t.m_THidden },
+    { "ExInput", t.m_ExInput },
+    { "ExHidden", t.m_ExHidden },
+    { "ExOutput", t.m_ExOutput }
+  };
 }
 
 
 void from_json(const nlohmann::json& j, GRN& t)
 {
-  j["ConI2H"].get_to(t.m_ConI2H);
-  j["ConH2H"].get_to(t.m_ConH2H);
-  j["ConH2O"].get_to(t.m_ConH2O);
-  j["THidden"].get_to(t.m_THidden);
-  j["ExInput"].get_to(t.m_ExInput);
-  j["ExHidden"].get_to(t.m_ExHidden);
-  j["ExOutput"].get_to(t.m_ExOutput);
+  j.at("ConI2H").get_to(t.m_ConI2H);
+  j.at("ConH2H").get_to(t.m_ConH2H);
+  j.at("ConH2O").get_to(t.m_ConH2O);
+  j.at("THidden").get_to(t.m_THidden);
+  j.at("ExInput").get_to(t.m_ExInput);
+  j.at("ExHidden").get_to(t.m_ExHidden);
+  j.at("ExOutput").get_to(t.m_ExOutput);
 }
 
 
